@@ -318,7 +318,7 @@ Semua fitur numerik bertipe `int64`, sedangkan target `FloodProbability` bertipe
   X_train_scaled = scaler.fit_transform(X_train)
   X_test_scaled = scaler.transform(X_test)
   ```
-- **Alasan**: Banyak algoritma machine learning (seperti SVM, KNN, Regresi Logistik) sensitif terhadap skala fitur. Dengan standardisasi, semua fitur diubah menjadi distribusi normal dengan rata-rata 0 dan deviasi standar 1, sehingga model lebih stabil dan cepat konvergen.
+- **Alasan**:  algoritma machine learning (seperti SVM) sensitif terhadap skala fitur. Dengan standardisasi, semua fitur diubah menjadi distribusi normal dengan rata-rata 0 dan deviasi standar 1, sehingga model lebih stabil dan cepat konvergen.
 
 ---
 
@@ -338,7 +338,6 @@ Semua fitur numerik bertipe `int64`, sedangkan target `FloodProbability` bertipe
 
 
 ## Modeling
-## 🧠 Modeling
 
 Dalam proyek ini, dilakukan pelatihan dan evaluasi model prediksi banjir dengan menggunakan tiga algoritma machine learning populer yang cocok untuk tugas klasifikasi biner, yaitu:
 
