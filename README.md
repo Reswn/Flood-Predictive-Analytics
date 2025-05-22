@@ -390,7 +390,7 @@ SVM merupakan algoritma klasifikasi yang bekerja dengan mencari garis batas (hyp
 
 ---
 
-## 📊 Evaluation
+## Evaluation
 
 Evaluasi performa model dilakukan dengan menggunakan dua metrik utama:
 
@@ -398,7 +398,7 @@ Evaluasi performa model dilakukan dengan menggunakan dua metrik utama:
 - **AUC (Area Under Curve)**: Mengukur kemampuan model membedakan antara kelas positif dan negatif.
 
 
-### 📈 Hasil Evaluasi Model
+###  Hasil Evaluasi Model
 ![Contoh Gambar](https://github.com/Reswn/Flood-Predictive-Analytics/blob/master/src/Peforma%20Model.png)
 
 
@@ -466,7 +466,7 @@ Dengan performa yang sangat tinggi dan konsisten, model SVM memiliki potensi bes
 - **Memfasilitasi badan penanggulangan bencana** dalam mengalokasikan sumber daya secara strategis.
 - **Meningkatkan kesiapsiagaan masyarakat**, terutama di wilayah berisiko tinggi.
 
-> 🎯 Model SVM tidak hanya menunjukkan performa klasifikasi terbaik, tetapi juga berkontribusi langsung dalam mendukung pengambilan keputusan yang lebih cepat, akurat, dan efisien dalam konteks mitigasi bencana banjir.
+> Model SVM tidak hanya menunjukkan performa klasifikasi terbaik, tetapi juga berkontribusi langsung dalam mendukung pengambilan keputusan yang lebih cepat, akurat, dan efisien dalam konteks mitigasi bencana banjir.
 
 ---
 ## Referensi
