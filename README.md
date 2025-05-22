@@ -1,5 +1,5 @@
 
-# Laporan Proyek Machine Learning -  Flood Prediction
+# Laporan Proyek Machine Learning -  Flood Prediction Analytics
 
 ![Contoh Gambar](https://github.com/Reswn/Flood-Predictive-Analytics/blob/master/src/banjir.jpeg?raw=true)
 
