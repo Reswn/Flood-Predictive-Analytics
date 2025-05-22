@@ -1,7 +1,7 @@
 
 # Laporan Proyek Machine Learning -  Flood Prediction
 
-![Contoh Gambar](https://raw.githubusercontent.com/username/repo/main/images/chart.png)
+![Contoh Gambar](https://github.com/Reswn/Flood-Predictive-Analytics/blob/master/src/banjir.jpeg?raw=true)
 
 ## Domain Proyek
 Banjir merupakan salah satu bencana alam paling merusak yang secara global menyebabkan kerugian ekonomi besar, kerusakan lingkungan, dan risiko terhadap keselamatan manusia. Menurut World Meteorological Organization (2021), banjir menyumbang lebih dari 40% kejadian bencana hidrometeorologi di seluruh dunia. Dengan meningkatnya urbanisasi, perubahan iklim, dan kerusakan ekosistem, risiko banjir menjadi semakin sulit diprediksi dengan cara konvensional.
@@ -150,7 +150,7 @@ Dataset prediksi banjir ini terdiri dari **50.000 baris data** dengan struktur s
 
 
 ### Distribusi Fitur numerik
-![Contoh Gambar](https://raw.githubusercontent.com/username/repo/main/images/chart.png)
+![Contoh Gambar](https://github.com/Reswn/Flood-Predictive-Analytics/blob/master/src/Gambar%20Numerik.png)
 
 
 ### 1. **Distribusi Data Secara Umum**
@@ -199,7 +199,7 @@ Dataset prediksi banjir ini terdiri dari **50.000 baris data** dengan struktur s
 
 
 ### Distribusi Korelasi Fitur Variabel
-![Contoh Gambar](https://raw.githubusercontent.com/username/repo/main/images/chart.png)
+![Contoh Gambar](https://github.com/Reswn/Flood-Predictive-Analytics/blob/master/src/gambar%20kategorikal.png)
 
 
 ### **1. Hubungan Antara Fitur dan Probabilitas Banjir (`FloodProbability`)**
@@ -339,7 +339,7 @@ Keterangan:
 ---
 
 ### 📈 Hasil Evaluasi Model
-![Contoh Gambar](https://raw.githubusercontent.com/username/repo/main/images/chart.png)
+![Contoh Gambar](https://github.com/Reswn/Flood-Predictive-Analytics/blob/master/src/Peforma%20Model.png)
 
 
 | Model              | Accuracy | AUC     |
