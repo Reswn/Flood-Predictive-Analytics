@@ -338,6 +338,64 @@ Evaluasi performa model dilakukan dengan menggunakan dua metrik utama:
 
 > Berdasarkan hasil evaluasi di atas, **SVM menjadi model terbaik** karena memberikan akurasi dan nilai AUC tertinggi, menunjukkan kemampuannya dalam mengklasifikasikan data secara akurat dan stabil.
 
+
+## Kesimpulan: Mengapa Support Vector Machine (SVM) adalah Model Terbaik
+
+Setelah membandingkan tiga model klasifikasi—Decision Tree, Random Forest, dan Support Vector Machine (SVM)—berdasarkan metrik **Accuracy** dan **AUC (Area Under Curve)**, diperoleh hasil bahwa **SVM adalah model terbaik** untuk klasifikasi risiko banjir dalam studi ini.
+
+### Alasan Mengapa SVM Unggul:
+
+- **Akurasi Tertinggi (99.13%)**  
+  Ini berarti bahwa 99.13% dari prediksi yang dilakukan oleh model SVM pada data uji sesuai dengan label sebenarnya. Angka ini jauh mengungguli Random Forest (88.88%) dan Decision Tree (68.80%).
+
+- **AUC Tertinggi (0.9997)**  
+  Nilai AUC mendekati 1 menunjukkan bahwa SVM memiliki kemampuan luar biasa dalam membedakan antara dua kelas, yaitu risiko banjir (1) dan tidak banjir (0). Ini menunjukkan bahwa model tidak hanya akurat, tetapi juga sangat sensitif terhadap perbedaan antara kelas.
+
+- **Generalisasi yang Lebih Baik**  
+  SVM cenderung lebih stabil dan tidak mudah mengalami overfitting dibandingkan dengan Decision Tree. Bahkan jika dibandingkan dengan Random Forest yang merupakan ensemble model, SVM masih menunjukkan performa lebih baik dalam konteks dataset ini.
+
+---
+
+## Kesimpulan
+
+Berdasarkan hasil eksperimen dan evaluasi terhadap beberapa model klasifikasi dalam proyek ini, diperoleh kesimpulan utama yang menjawab rumusan masalah secara menyeluruh:
+
+### Pembangunan Model Klasifikasi Risiko Banjir
+Model machine learning telah berhasil dikembangkan untuk memprediksi risiko banjir dengan memanfaatkan **20 fitur** yang merepresentasikan berbagai faktor lingkungan, sosial, dan infrastruktur. Tahapan proyek mencakup:
+- Exploratory Data Analysis (EDA)
+- Data preprocessing & normalisasi
+- Pelatihan model klasifikasi
+- Evaluasi performa berdasarkan metrik akurasi dan AUC
+
+---
+
+### Model Terbaik: Support Vector Machine (SVM)
+
+Dari tiga model yang dikomparasikan—**Decision Tree**, **Random Forest**, dan **SVM**—diperoleh hasil evaluasi sebagai berikut:
+
+| Model           | Accuracy | AUC     |
+|----------------|----------|---------|
+| SVM            | **99.13%** | **0.9997** |
+| Random Forest  | 88.88%   | 0.9683  |
+| Decision Tree  | 68.80%   | 0.6860  |
+
+🔹 **Support Vector Machine (SVM)** terbukti unggul secara signifikan dalam hal:
+- **Akurasi tertinggi (99.13%)** → prediksi sangat presisi terhadap data uji.
+- **AUC tertinggi (0.9997)** → kemampuan luar biasa dalam membedakan antara kelas "banjir" dan "tidak banjir".
+- **Generalization** yang lebih baik dan tahan terhadap overfitting dibanding model lainnya.
+
+---
+
+### Manfaat Model bagi Pengambilan Keputusan
+
+Dengan performa yang sangat tinggi dan konsisten, model SVM memiliki potensi besar untuk:
+- **Mendukung sistem peringatan dini banjir** secara otomatis dan data-driven.
+- **Membantu pemerintah daerah** dalam menetapkan zona rawan dan rencana mitigasi.
+- **Memfasilitasi badan penanggulangan bencana** dalam mengalokasikan sumber daya secara strategis.
+- **Meningkatkan kesiapsiagaan masyarakat**, terutama di wilayah berisiko tinggi.
+
+> 🎯 Model SVM tidak hanya menunjukkan performa klasifikasi terbaik, tetapi juga berkontribusi langsung dalam mendukung pengambilan keputusan yang lebih cepat, akurat, dan efisien dalam konteks mitigasi bencana banjir.
+
 ---
 ## Referensi
 
