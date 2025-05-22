@@ -325,18 +325,6 @@ Evaluasi performa model dilakukan dengan menggunakan dua metrik utama:
 - **Accuracy**: Proporsi prediksi yang benar terhadap seluruh jumlah data.
 - **AUC (Area Under Curve)**: Mengukur kemampuan model membedakan antara kelas positif dan negatif.
 
-### 🔢 Rumus Accuracy:
-\[
-\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} \times 100\%
-\]
-
-Keterangan:
-- **TP**: Prediksi banjir benar (positif).
-- **TN**: Prediksi tidak banjir benar (negatif).
-- **FP**: Prediksi salah positif (false alarm).
-- **FN**: Prediksi salah negatif (banjir tidak terdeteksi).
-
----
 
 ### 📈 Hasil Evaluasi Model
 ![Contoh Gambar](https://github.com/Reswn/Flood-Predictive-Analytics/blob/master/src/Peforma%20Model.png)
@@ -352,3 +340,14 @@ Keterangan:
 
 ---
 
+## Referensi: 
+[1] GeeksforGeeks (2024). Random Forest Algorithm in Machine Learning. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/random-forest-algorithm-in-machine-learning/ [Accessed 20 May 2025].
+[2] Built In. (2022). Decision Tree Classification | Built In. [online] Available at: https://builtin.com/data-science/classification-tree [Accessed 20 May 2025].
+[3] GeeksforGeeks (2021). Support Vector Machine (SVM) Algorithm. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/support-vector-machine-algorithm/ [Accessed 20 May 2025].
+‌[4]	R. L. Puspasari, D. Yoon, H. Kim, and K.-W. Kim, “Machine Learning for Flood Prediction in Indonesia: Providing Online Access for Disaster Management Control,” Economic and Environmental Geology, vol. 56, no. 1, pp. 65–73, 2023. [Online]. Available: http://dx.doi.org/10.9719/EEG.2023.56.1.65 
+[5]	L. Khaldi, A. EL Bilali, A. Elabed, N. Krakauer, and A. El Khanchoufi, “Developing an explainable and interpretable machine learning model for flood susceptibility mapping,” Ecological Engineering & Environmental Technology, vol. 26, no. 1, pp. 201–215, 2025. [Online]. Available: https://doi.org/10.12912/27197050/195845 
+[6]	J. Yang, D. Ahn, J. Bahk, S. Park, N. Rizqihandari, and M. Cha, “Assessing climate risks from satellite imagery with machine learning: A case study of flood risks in Jakarta,” Climate Risk Management. 2024
+[7]	S. S. Movva, “Flood Prediction Analysis Using Explainable Artificial Intelligence,” European Journal of Advances in Engineering and Technology, vol. 9, no. 3, pp. 139–146, 2022. 
+
+‌
+‌
