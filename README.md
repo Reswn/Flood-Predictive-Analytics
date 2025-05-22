@@ -339,15 +339,20 @@ Evaluasi performa model dilakukan dengan menggunakan dua metrik utama:
 > Berdasarkan hasil evaluasi di atas, **SVM menjadi model terbaik** karena memberikan akurasi dan nilai AUC tertinggi, menunjukkan kemampuannya dalam mengklasifikasikan data secara akurat dan stabil.
 
 ---
+## Referensi
 
-## Referensi: 
-[1] GeeksforGeeks (2024). Random Forest Algorithm in Machine Learning. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/random-forest-algorithm-in-machine-learning/ [Accessed 20 May 2025].
-[2] Built In. (2022). Decision Tree Classification | Built In. [online] Available at: https://builtin.com/data-science/classification-tree [Accessed 20 May 2025].
-[3] GeeksforGeeks (2021). Support Vector Machine (SVM) Algorithm. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/support-vector-machine-algorithm/ [Accessed 20 May 2025].
-‌[4]	R. L. Puspasari, D. Yoon, H. Kim, and K.-W. Kim, “Machine Learning for Flood Prediction in Indonesia: Providing Online Access for Disaster Management Control,” Economic and Environmental Geology, vol. 56, no. 1, pp. 65–73, 2023. [Online]. Available: http://dx.doi.org/10.9719/EEG.2023.56.1.65 
-[5]	L. Khaldi, A. EL Bilali, A. Elabed, N. Krakauer, and A. El Khanchoufi, “Developing an explainable and interpretable machine learning model for flood susceptibility mapping,” Ecological Engineering & Environmental Technology, vol. 26, no. 1, pp. 201–215, 2025. [Online]. Available: https://doi.org/10.12912/27197050/195845 
-[6]	J. Yang, D. Ahn, J. Bahk, S. Park, N. Rizqihandari, and M. Cha, “Assessing climate risks from satellite imagery with machine learning: A case study of flood risks in Jakarta,” Climate Risk Management. 2024
-[7]	S. S. Movva, “Flood Prediction Analysis Using Explainable Artificial Intelligence,” European Journal of Advances in Engineering and Technology, vol. 9, no. 3, pp. 139–146, 2022. 
+1. GeeksforGeeks. (2024). *Random Forest Algorithm in Machine Learning*. [Online]. Available at: https://www.geeksforgeeks.org/random-forest-algorithm-in-machine-learning/ [Accessed 20 May 2025].
 
-‌
+2. Built In. (2022). *Decision Tree Classification | Built In*. [Online]. Available at: https://builtin.com/data-science/classification-tree [Accessed 20 May 2025].
+
+3. GeeksforGeeks. (2021). *Support Vector Machine (SVM) Algorithm*. [Online]. Available at: https://www.geeksforgeeks.org/support-vector-machine-algorithm/ [Accessed 20 May 2025].
+
+4. Puspasari, R. L., Yoon, D., Kim, H., & Kim, K.-W. (2023). *Machine Learning for Flood Prediction in Indonesia: Providing Online Access for Disaster Management Control*. Economic and Environmental Geology, 56(1), 65–73. [Online]. Available at: http://dx.doi.org/10.9719/EEG.2023.56.1.65
+
+5. Khaldi, L., EL Bilali, A., Elabed, A., Krakauer, N., & El Khanchoufi, A. (2025). *Developing an explainable and interpretable machine learning model for flood susceptibility mapping*. Ecological Engineering & Environmental Technology, 26(1), 201–215. [Online]. Available at: https://doi.org/10.12912/27197050/195845
+
+6. Yang, J., Ahn, D., Bahk, J., Park, S., Rizqihandari, N., & Cha, M. (2024). *Assessing climate risks from satellite imagery with machine learning: A case study of flood risks in Jakarta*. Climate Risk Management. *(In Press)*
+
+7. Movva, S. S. (2022). *Flood Prediction Analysis Using Explainable Artificial Intelligence*. European Journal of Advances in Engineering and Technology, 9(3), 139–146.
+
 ‌
