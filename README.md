@@ -125,7 +125,7 @@ Dataset ini berisi berbagai fitur yang merepresentasikan kondisi lingkungan, sos
 
 > Catatan: Seluruh variabel input dinyatakan dalam bentuk skor (misalnya 1–10), yang merepresentasikan tingkat pengaruh atau keparahan dari masing-masing faktor.
 
-## Ringkasan Informasi Dataset
+### Ringkasan Informasi Dataset
 
 Dataset prediksi banjir ini terdiri dari **50.000 baris data** dengan struktur sebagai berikut:
 
@@ -264,6 +264,78 @@ Dataset prediksi banjir ini terdiri dari **50.000 baris data** dengan struktur s
      - **Interpretasi**: Meskipun faktor seperti musim hujan monsun dan praktik pertanian memiliki potensi untuk memengaruhi banjir, dampaknya tampaknya kurang signifikan dibandingkan dengan faktor lainnya.
 
 ---
+
+## Data Preparation
+
+Pada tahap ini, data dipersiapkan agar siap digunakan dalam proses pelatihan model machine learning. Tujuan dari *data preparation* adalah memastikan data bersih, konsisten, dan dalam format yang tepat sehingga dapat memberikan performa model yang optimal. Berikut adalah langkah-langkah yang dilakukan:
+
+### 1. Pembersihan Data
+
+#### a. **Missing Values**
+ Tidak ditemukan nilai kosong (`NaN`) pada seluruh fitur dataset (total 50.000 baris data lengkap).
+
+#### b. **Duplicate Rows**
+Tidak ada duplikasi baris terdeteksi.
+
+#### c. **Konsistensi Tipe Data**
+Semua fitur numerik bertipe `int64`, sedangkan target `FloodProbability` bertipe `float64`.
+- **Alasan**: Memastikan semua kolom memiliki tipe data yang benar agar kompatibel dengan operasi numerik dan model machine learning.
+
+---
+
+### 2. Pembagian Data (Train-Test Split)
+
+#### a. **Binarisasi Target**
+- **Deskripsi**: Kolom target `FloodProbability` dikonversi menjadi label biner `FloodLabel` menggunakan threshold 0.5:
+  ```python
+  df['FloodLabel'] = (df['FloodProbability'] > 0.5).astype(int)
+  ```
+- **Alasan**: Model klasifikasi memerlukan label kelas diskrit (0 atau 1), sementara `FloodProbability` merupakan kontinu. Threshold 0.5 digunakan sebagai batas natural untuk konversi probabilitas ke label biner.
+
+#### b. **Split Fitur dan Label**
+- **Deskripsi**:
+  ```python
+  X = df.drop(['FloodProbability', 'FloodLabel'], axis=1)
+  y = df['FloodLabel']
+  ```
+- **Alasan**: Memisahkan variabel prediktor (`X`) dan variabel target (`y`) sebelum pembagian data latih dan uji.
+
+#### c. **Pembagian Data Latih dan Uji**
+- **Deskripsi**:
+  ```python
+  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+  ```
+- **Alasan**: Membagi data menjadi 80% untuk pelatihan dan 20% untuk evaluasi. Parameter `random_state` digunakan untuk mereproduksi hasil split yang sama setiap kali kode dijalankan.
+
+---
+
+### 3. Standarisasi Fitur
+
+#### a. **Standardisasi Data**
+- **Deskripsi**:
+  ```python
+  scaler = StandardScaler()
+  X_train_scaled = scaler.fit_transform(X_train)
+  X_test_scaled = scaler.transform(X_test)
+  ```
+- **Alasan**: Banyak algoritma machine learning (seperti SVM, KNN, Regresi Logistik) sensitif terhadap skala fitur. Dengan standardisasi, semua fitur diubah menjadi distribusi normal dengan rata-rata 0 dan deviasi standar 1, sehingga model lebih stabil dan cepat konvergen.
+
+---
+
+##  Ringkasan Tahapan
+
+| No | Tahapan                  | Tujuan                                                                 |
+|----|---------------------------|------------------------------------------------------------------------|
+| 1  | Pembersihan Data          | Memastikan data bersih, tanpa missing values, duplikasi, dan valid   |
+| 2  | Binarisasi Target         | Mengubah target kontinu menjadi label biner untuk klasifikasi        |
+| 3  | Split Fitur dan Label     | Memisahkan variabel input dan output                                 |
+| 4  | Train-Test Split          | Mempersiapkan data latih dan uji                                     |
+| 5  | Standardisasi             | Menyesuaikan skala fitur agar kompatibel dengan model                 |
+
+---
+
+
+
 
 ## Modeling
 ## 🧠 Modeling
