@@ -14,9 +14,13 @@ World (2021). 2021 State of Climate Services. [online] Wmo.int. Available at: ht
 ___
 ## **Business Understanding**
 ___
-Dalam era modern yang ditandai dengan urbanisasi cepat dan perubahan iklim ekstrem, banjir menjadi salah satu bencana alam yang paling merugikan. Tidak hanya mengakibatkan kerusakan infrastruktur, banjir juga berdampak pada sektor pertanian, ekonomi lokal, serta mengancam keselamatan penduduk. Oleh karena itu, pengembangan sistem prediktif berbasis machine learning untuk mengidentifikasi potensi banjir sangatlah penting, khususnya dalam mendukung pengambilan keputusan oleh otoritas kebencanaan, perencana wilayah, dan pemerintah daerah.
+Dalam era modern yang ditandai dengan urbanisasi pesat dan perubahan iklim ekstrem, banjir menjadi salah satu bencana alam yang paling sering terjadi dan paling merugikan. Dampaknya tidak hanya mencakup kerusakan infrastruktur, tetapi juga menimbulkan gangguan signifikan pada aktivitas ekonomi, merusak lahan pertanian, dan mengancam keselamatan serta kehidupan masyarakat.
 
-Dengan memanfaatkan berbagai indikator seperti intensitas curah hujan, pengelolaan sungai, kerusakan ekosistem, dan faktor tata kota, proyek ini bertujuan membangun model klasifikasi yang dapat memprediksi apakah suatu wilayah memiliki probabilitas tinggi mengalami banjir. Model ini diharapkan mampu mempercepat respons mitigasi dan meningkatkan efektivitas sistem peringatan dini banjir.
+Masalah utama yang dihadapi saat ini adalah kurangnya sistem yang mampu memberikan peringatan dini secara tepat dan cepat mengenai potensi terjadinya banjir. Banyak wilayah terdampak tidak memiliki akses pada informasi prediktif yang akurat, sehingga langkah mitigasi sering kali bersifat reaktif dan tidak efektif. Hal ini menyebabkan keterlambatan dalam evakuasi, distribusi bantuan yang tidak terarah, serta kerugian materiil dan korban jiwa yang dapat dihindari.
+
+Urgensi dari permasalahan ini semakin meningkat seiring dengan intensitas curah hujan yang makin sulit diprediksi dan tata kelola wilayah yang belum sepenuhnya adaptif terhadap risiko banjir. Jika tidak segera ditangani, maka frekuensi dan dampak banjir akan semakin parah, dan sistem penanggulangan bencana yang ada tidak akan mampu menanganinya secara optimal.
+
+Oleh karena itu, dibutuhkan pendekatan yang lebih proaktif dengan memanfaatkan data historis dan indikator relevan untuk membantu pihak terkait dalam mengidentifikasi wilayah berisiko tinggi. Inisiatif ini penting untuk mendukung pengambilan keputusan yang lebih cepat dan berbasis data dalam upaya pencegahan dan mitigasi bencana banjir.
 
 ### **Problem Statement**
 Beberapa masalah utama yang ingin dijawab dalam proyek ini antara lain:
@@ -269,71 +273,75 @@ Dataset prediksi banjir ini terdiri dari **50.000 baris data** dengan struktur s
 
 Pada tahap ini, data dipersiapkan agar siap digunakan dalam proses pelatihan model machine learning. Tujuan dari *data preparation* adalah memastikan data bersih, konsisten, dan dalam format yang tepat sehingga dapat memberikan performa model yang optimal. Berikut adalah langkah-langkah yang dilakukan:
 
-### 1. Pembersihan Data
+## 1. Pembersihan Data
 
-#### a. **Missing Values**
- Tidak ditemukan nilai kosong (`NaN`) pada seluruh fitur dataset (total 50.000 baris data lengkap).
+- **Missing Values**  
+  Seluruh fitur telah diperiksa dan tidak ditemukan nilai kosong (`NaN`). Tidak diperlukan teknik imputasi karena data lengkap (50.000 baris data valid).
 
-#### b. **Duplicate Rows**
-Tidak ada duplikasi baris terdeteksi.
+- **Duplikasi Data**  
+  Tidak ditemukan baris duplikat dalam dataset, sehingga tidak dilakukan penghapusan data redundan.
 
-#### c. **Konsistensi Tipe Data**
-Semua fitur numerik bertipe `int64`, sedangkan target `FloodProbability` bertipe `float64`.
-- **Alasan**: Memastikan semua kolom memiliki tipe data yang benar agar kompatibel dengan operasi numerik dan model machine learning.
-
----
-
-### 2. Pembagian Data (Train-Test Split)
-
-#### a. **Binarisasi Target**
-- **Deskripsi**: Kolom target `FloodProbability` dikonversi menjadi label biner `FloodLabel` menggunakan threshold 0.5:
-  ```python
-  df['FloodLabel'] = (df['FloodProbability'] > 0.5).astype(int)
-  ```
-- **Alasan**: Model klasifikasi memerlukan label kelas diskrit (0 atau 1), sementara `FloodProbability` merupakan kontinu. Threshold 0.5 digunakan sebagai batas natural untuk konversi probabilitas ke label biner.
-
-#### b. **Split Fitur dan Label**
-- **Deskripsi**:
-  ```python
-  X = df.drop(['FloodProbability', 'FloodLabel'], axis=1)
-  y = df['FloodLabel']
-  ```
-- **Alasan**: Memisahkan variabel prediktor (`X`) dan variabel target (`y`) sebelum pembagian data latih dan uji.
-
-#### c. **Pembagian Data Latih dan Uji**
-- **Deskripsi**:
-  ```python
-  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-  ```
-- **Alasan**: Membagi data menjadi 80% untuk pelatihan dan 20% untuk evaluasi. Parameter `random_state` digunakan untuk mereproduksi hasil split yang sama setiap kali kode dijalankan.
+- **Konsistensi Tipe Data**  
+  Semua fitur numerik bertipe `int64`, sementara target `FloodProbability` bertipe `float64`. Konsistensi ini penting agar tidak terjadi error saat pemrosesan numerik dan pelatihan model.
 
 ---
 
-### 3. Standarisasi Fitur
+## 2. Binarisasi Target
 
-#### a. **Standardisasi Data**
-- **Deskripsi**:
-  ```python
-  scaler = StandardScaler()
-  X_train_scaled = scaler.fit_transform(X_train)
-  X_test_scaled = scaler.transform(X_test)
-  ```
-- **Alasan**:  algoritma machine learning (seperti SVM) sensitif terhadap skala fitur. Dengan standardisasi, semua fitur diubah menjadi distribusi normal dengan rata-rata 0 dan deviasi standar 1, sehingga model lebih stabil dan cepat konvergen.
+Untuk mengubah nilai probabilitas banjir (`FloodProbability`) menjadi label klasifikasi biner (`FloodLabel`), digunakan threshold 0.5:
+
+- Jika nilai > 0.5 → diklasifikasikan sebagai `1` (risiko banjir tinggi)  
+- Jika nilai ≤ 0.5 → diklasifikasikan sebagai `0` (risiko banjir rendah)
+
+> Teknik: Binarisasi nilai kontinu menjadi label diskrit (biner)
 
 ---
 
-##  Ringkasan Tahapan
+## 3. 🧷 Pemisahan Fitur dan Label
 
-| No | Tahapan                  | Tujuan                                                                 |
-|----|---------------------------|------------------------------------------------------------------------|
-| 1  | Pembersihan Data          | Memastikan data bersih, tanpa missing values, duplikasi, dan valid   |
-| 2  | Binarisasi Target         | Mengubah target kontinu menjadi label biner untuk klasifikasi        |
-| 3  | Split Fitur dan Label     | Memisahkan variabel input dan output                                 |
-| 4  | Train-Test Split          | Mempersiapkan data latih dan uji                                     |
-| 5  | Standardisasi             | Menyesuaikan skala fitur agar kompatibel dengan model                 |
+Fitur (`X`) dipisahkan dari target (`y`) untuk mempersiapkan input dan output pelatihan model:
+
+- `X` berisi seluruh fitur prediktor kecuali `FloodProbability` dan `FloodLabel`
+- `y` hanya berisi nilai `FloodLabel`
 
 ---
 
+## 4. Pembagian Data Latih dan Uji
+
+Data dibagi menggunakan teknik **train-test split** dari scikit-learn:
+
+- 80% data digunakan untuk pelatihan model
+- 20% data digunakan untuk evaluasi model
+- Digunakan `random_state=42` untuk memastikan reprodusibilitas
+
+> Teknik: `train_test_split` dari `sklearn.model_selection`
+
+---
+
+## 5. ⚖Standardisasi Fitur
+
+Fitur numerik dinormalisasi menggunakan teknik **standardisasi** agar memiliki:
+
+- Rata-rata (mean) = 0  
+- Standar deviasi = 1  
+
+Hal ini membantu model machine learning yang sensitif terhadap skala, seperti SVM dan KNN, agar lebih cepat konvergen dan memberikan hasil yang lebih baik.
+
+> Teknik: `StandardScaler` dari `sklearn.preprocessing`
+
+---
+
+## Ringkasan Tahapan
+
+| No | Tahapan              | Teknik yang Digunakan       | Tujuan                                                                 |
+|----|-----------------------|-----------------------------|------------------------------------------------------------------------|
+| 1  | Pembersihan Data      | Cek missing values & duplikat | Menjamin kualitas dan validitas data                                 |
+| 2  | Binarisasi Target     | Threshold 0.5               | Mengubah probabilitas menjadi label kelas biner untuk klasifikasi     |
+| 3  | Split Fitur & Label   | Manual split                | Memisahkan fitur prediktor dari target                                |
+| 4  | Pembagian Data        | Train-test split            | Menyediakan data pelatihan dan pengujian                              |
+| 5  | Standardisasi Fitur   | StandardScaler              | Menyamakan skala fitur untuk meningkatkan performa model              |
+
+---
 
 
 
